@@ -1,1 +1,42 @@
-
+/***********************************************************************
+    功能: 编写一个递归版本的reverse(s)函数，把字符串s颠倒过来。
+    作者：yxt
+***********************************************************************/
+#include <stdio.h>
+ 
+void reverse(char s[],int length);
+int main()
+{
+    char s1[]="hello";
+    char s2[]={'w','o','r','l','d'};
+    int length=0;
+ 
+    length=strlen(s1);
+    reverse (s1,length);
+    printf ("%s\n",s1);
+ 
+    longest=strlen(s2);
+    reverse (s2,length);
+    printf ("%s\n",s2);
+    return 0;
+}
+/* reverse函数: 把字符串s颠倒过来(递归版本),length为字符串长度 */
+void reverse(char s[],int length)
+{
+    char c;
+    int i=0;
+     
+    if (length>1)
+    {
+        /* 依次交换数组中相邻的数组元素 */
+        for (i=0;i<length-1;i++)
+        {
+            c=s[i];
+            s[i]=s[i+1];
+            s[i+1]=c;
+        }
+ 
+        length--;
+        reverse (s,length);
+    }
+}
